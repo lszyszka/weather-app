@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {mapStateToProps} from "../mapStateToProps";
 import {mapDispatchToProps} from "../mapDispatchToProps";
@@ -28,7 +27,7 @@ class DayWeather extends React.Component {
                                     iconId={this.props.weather.data.list[this.props.icon].weather[0].id}
                                     flip="horizontal"
                                     rotate="90"/>}</span>
-                    <span>{Math.floor(this.props.weather.data.list[this.props.icon].main.temp - 273.15)} &deg;</span>
+                    <span>{Math.floor(this.props.weather.data.list[this.props.icon].main.temp - 273.15)}&deg;</span>
                 </div>
             </div>
 

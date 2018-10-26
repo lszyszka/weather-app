@@ -1,15 +1,25 @@
 {
+  "homepage": "http://lszyszka.github.io/weather-app",
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.6",
+    "@fortawesome/free-solid-svg-icons": "^5.4.1",
+    "@fortawesome/react-fontawesome": "^0.1.3",
     "axios": "^0.18.0",
     "prop-types": "latest",
     "react": "^16.5.2",
+    "react-alert": "^4.0.4",
+    "react-alert-template-basic": "^1.0.0",
     "react-dom": "^16.5.2",
+    "react-geolocated": "^2.4.0",
+    "react-icons": "^3.2.2",
     "react-icons-weather": "^1.0.5",
     "react-redux": "^5.0.7",
     "react-scripts": "2.0.5",
+    "react-search-field": "0.0.3",
+    "react-toastify": "^4.4.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
   },
@@ -17,7 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -29,6 +41,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "gh-pages": "^2.0.1",
     "node-sass": "^4.9.4",
     "sass-loader": "^7.1.0"
   }

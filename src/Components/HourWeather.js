@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {mapStateToProps} from "../mapStateToProps";
 import {mapDispatchToProps} from "../mapDispatchToProps";
@@ -24,10 +23,10 @@ class HourWeather extends React.Component {
         if (this.props.weather !== undefined) {
             return <div>
                 <div className="temp">
-                    <span>{Math.floor(this.props.weather.data.list[count].main.temp - 273.15)} &deg;</span>
-                    <span>{Math.floor(this.props.weather.data.list[count + 1].main.temp - 273.15)} &deg;</span>
-                    <span>{Math.floor(this.props.weather.data.list[count + 2].main.temp - 273.15)} &deg;</span>
-                    <span>{Math.floor(this.props.weather.data.list[count + 3].main.temp - 273.15)} &deg;</span>
+                    <span>{Math.floor(this.props.weather.data.list[count].main.temp - 273.15)}&deg;</span>
+                    <span>{Math.floor(this.props.weather.data.list[count + 1].main.temp - 273.15)}&deg;</span>
+                    <span>{Math.floor(this.props.weather.data.list[count + 2].main.temp - 273.15)}&deg;</span>
+                    <span>{Math.floor(this.props.weather.data.list[count + 3].main.temp - 273.15)}&deg;</span>
                 </div>
                 <div className="icon">
                     <WeatherIcon className="weather-today"

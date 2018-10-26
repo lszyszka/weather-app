@@ -1,28 +1,27 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {getCity} from "../Actions";
 import {mapStateToProps} from "../mapStateToProps";
 import {mapDispatchToProps} from "../mapDispatchToProps";
 import connect from "react-redux/es/connect/connect";
-import Weather from "./Weather";
 import axios from "axios";
 import searchCity from "../Assets/scss/searchCity.scss"
+import {IoIosSearch} from 'react-icons/io';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 class City extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            inputValue: 'London'
+            inputValue: 'London',
         }
     }
 
+
     static propTypes = {
         city: PropTypes.string,
-        cityInput: PropTypes.string,
-        getCity: PropTypes.func,
-        setCity: PropTypes.func
     };
 
     handleInput(e) {
@@ -30,30 +29,58 @@ class City extends React.Component {
     }
 
     handleGetApi() {
+        let notify = () => toast.error("Wrong city!");
         axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=` + this.state.inputValue + `&appid=3b1ebacd50586cc78e3bbbf1a089f683` + `&lang=en`)
             .then(res => {
                 this.props.getWeather(res);
                 console.log(res);
                 console.log("State: ", this.props.weather);
-            })
+            }).catch(function (error) {
+            notify();
+
+
+        })
     }
+
+
+    componentDidMount() {
+        this.handleGetApi();
+    }
+
+    handleKeyPress(e) {
+        if (e.key === 'Enter') {
+            this.handleInput(e);
+            this.handleGetApi();
+        }
+    }
+
 
     render() {
-
-        const {city, getCity} = this.props;
-        console.log(city);
+        const {city} = this.props;
         return <div className="search">
-            <input placeholder={"Wpisz miasto "} type="text" name="city" onChange={(e) => {
+            <ToastContainer
+                position="bottom-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnVisibilityChange
+                draggable
+                pauseOnHover
+            />
+            <input placeholder={"Enter city name "} type="text" name="city" onChange={(e) => {
                 this.handleInput(e)
+            }} onKeyPress={(e) => {
+                this.handleKeyPress(e)
             }}/>
-            <button value={this.state.inputValue} onClick={() => {
-                this.handleGetApi()
-            }}>Search
-            </button>
+            <IoIosSearch className="searchLupa" style={{marginBottom: "-10px", cursor: "pointer"}} size={"2em"}
+                         onClick={(e) => {
+                             this.handleGetApi()
+                         }}/>
+
         </div>
     }
-
-
 }
 
 City = connect(mapStateToProps, mapDispatchToProps)(City);

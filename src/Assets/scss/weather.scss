@@ -19,6 +19,22 @@
   margin-top: 10px;
   span:first-child {
     font-weight: 700;
+    font-size: 22px;
   }
 
+}
+
+@media screen and (max-width: 640px) {
+  .today {
+    margin-left: 6px;
+
+    .weather-today {
+      margin-right: 31px;
+    }
+
+    span {
+      margin-right: 117px;
+
+    }
+  }
 }

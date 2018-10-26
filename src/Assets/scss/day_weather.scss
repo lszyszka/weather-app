@@ -1,24 +1,35 @@
 .day {
-  margin-top: 18px;
+  margin-top: 25px;
   font-size: 18px;
 
   .text {
-    margin-left: 60px;
+    margin-left: 57px;
     float: left;
-    width: 90px;
+    width: 102px;
   }
 
   span:first-child {
     width: 200px;
-    margin-right: 16%;
+    margin-right: 36px;
   }
 
   .rest {
-    margin-left: 245px;
+    margin-left: 222px;
   }
 
   span:nth-child(2) {
     margin-right: 25px;
     font-size: 20px;
   }
+}
+
+@media screen and (max-width: 640px) {
+  .day {
+    .text {
+      margin-left: 32px;
+      float: left;
+      width: 102px;
+    }
+  }
+
 }

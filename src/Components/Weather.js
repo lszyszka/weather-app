@@ -1,10 +1,8 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {mapStateToProps} from "../mapStateToProps";
 import {mapDispatchToProps} from "../mapDispatchToProps";
 import connect from "react-redux/es/connect/connect";
-import axios from 'axios';
 import WeatherIcon from 'react-icons-weather';
 import weather from "../Assets/scss/weather.scss"
 
@@ -26,7 +24,7 @@ class Weather extends React.Component {
                                                                        name="owm"
                                                                        iconId={this.props.weather.data.list[count].weather[count].id}
                                                                        flip="horizontal"
-                                                                       rotate="90"/>{Math.floor(this.props.weather.data.list[count].main.temp - 273.15)} &deg;
+                                                                       rotate="90"/>{Math.floor(this.props.weather.data.list[count].main.temp - 273.15)}&deg;
                 </div>
                 <div className="info">
                     <span> {weather.data.city.name} </span><br/>
