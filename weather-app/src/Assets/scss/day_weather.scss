@@ -1,0 +1,24 @@
+.day {
+  margin-top: 18px;
+  font-size: 18px;
+
+  .text {
+    margin-left: 60px;
+    float: left;
+    width: 90px;
+  }
+
+  span:first-child {
+    width: 200px;
+    margin-right: 16%;
+  }
+
+  .rest {
+    margin-left: 245px;
+  }
+
+  span:nth-child(2) {
+    margin-right: 25px;
+    font-size: 20px;
+  }
+}
