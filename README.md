@@ -1,1 +1,1 @@
-React Weather App (Redux, API, NO-RWD)
+React Weather App (Redux, API, Axios)
